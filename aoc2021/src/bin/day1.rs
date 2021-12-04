@@ -1,7 +1,5 @@
-use std::path::PathBuf;
 use common::{
-  get_input_file_pathbuf,
-  read_file_return_vec
+  read_file
 };
 
 fn part1_count(numbers: &[i64]){
@@ -32,8 +30,7 @@ fn part2_count(numbers: &mut Vec<i64>){
 }
 
 fn main() {
-    let path: PathBuf = get_input_file_pathbuf("aoc2021/files/day1-input.txt");
-    let mut numbers: Vec<i64> = read_file_return_vec(&path); // creating this as mutable since we want to add elements to it in part2
-    part1_count(&numbers); // pass vector as is.
-    part2_count(&mut numbers); // pass mutable vector as elements will be added to it.
+    let mut items: Vec<i64> = read_file("aoc2021/files/day1-input.txt");
+    part1_count(&items); // pass vector as is.
+    part2_count(&mut items); // pass mutable vector as elements will be added to it.
 }
