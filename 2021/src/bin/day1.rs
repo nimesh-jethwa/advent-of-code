@@ -43,7 +43,7 @@ fn part2_count(numbers: &mut Vec<i64>){
 }
 
 fn main() {
-    let path: PathBuf = [project_root::get_project_root().unwrap(), Path::new("files/day1-input.txt").to_path_buf()].iter().collect(); // construct a path to input file
+    let path: PathBuf = [project_root::get_project_root().unwrap(), Path::new("2021/files/day1-input.txt").to_path_buf()].iter().collect(); // construct a path to input file
     let mut numbers: Vec<i64> = read_file(&path); // creating this as mutable since we want to add elements to it in part2
     part1_count(&numbers); // pass vector as is.
     part2_count(&mut numbers); // pass mutable vector as elements will be added to it.
