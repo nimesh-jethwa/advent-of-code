@@ -1,19 +1,5 @@
-use std::fs::File;
-use std::io::BufReader;
-use std::io::BufRead;
-use project_root;
-use std::path::Path;
 use std::path::PathBuf;
-
-fn read_file(file_path: &PathBuf) -> Vec<i64> {
-    let file = File::open(file_path).expect("File not found");
-    let reader = BufReader::new(file);
-
-    reader
-        .lines()
-        .map(|line| line.unwrap().parse::<i64>().unwrap())
-        .collect()
-}
+use aoc2021;
 
 fn part1_count(numbers: &[i64]){
     let mut count = 0;
@@ -43,8 +29,8 @@ fn part2_count(numbers: &mut Vec<i64>){
 }
 
 fn main() {
-    let path: PathBuf = [project_root::get_project_root().unwrap(), Path::new("2021/files/day1-input.txt").to_path_buf()].iter().collect(); // construct a path to input file
-    let mut numbers: Vec<i64> = read_file(&path); // creating this as mutable since we want to add elements to it in part2
+    let path: PathBuf = aoc2021::get_input_file_pathbuf("aoc2021/files/day1-input.txt");
+    let mut numbers: Vec<i64> = aoc2021::read_file_return_vec(&path); // creating this as mutable since we want to add elements to it in part2
     part1_count(&numbers); // pass vector as is.
     part2_count(&mut numbers); // pass mutable vector as elements will be added to it.
 }
